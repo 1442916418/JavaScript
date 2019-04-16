@@ -1,0 +1,83 @@
+html,body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #333;
+    background-color: #fff;
+}
+.outermost_container{
+    opacity: 1;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.show_outermost_container{
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .3);
+}
+.fade{
+    /* opacity: 0; */
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.modal_dialog{
+    width: 37.5rem;
+    margin: 3.75rem auto;
+    opacity: 1;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.modal_content{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, .2);
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5); 
+}
+.modal_header{
+    padding: 15px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.modal_body{
+    padding: 15px;
+}
+.modal_footer{
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #E5E5E5;
+}
+.modal_ok_btn{
+    outline: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    border: 1px solid #2d8cf0;
+    background-color: #2d8cf0;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color .2s linear,background-color .2s linear,border .2s linear,box-shadow .2s linear;
+}
+.modal_cancel_btn{
+    outline: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color .2s linear,background-color .2s linear,border .2s linear,box-shadow .2s linear;
+}

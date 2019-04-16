@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模态框</title>
+    <link rel="stylesheet" href="./css/modalFrame_css.css">
+</head>
+<body>
+    <button onclick="btnAlert()">Alert</button>
+
+    <script src="./js/modalFrame.js"></script>
+    <script>
+       function btnAlert(){
+            ModalFrame.alert({
+                'title': 'Hello',
+                'content': 'Alert',
+                'okBtn': '确认',
+            });
+        }
+    </script>
+</body>
+</html>
