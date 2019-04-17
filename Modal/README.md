@@ -20,9 +20,9 @@ myModal.open();
 
 ## Modal 配置  
 |   选项    |   描述    |   默认状态    |   备注    |  
-| --------- |:--------:| ------------- | -------- |
+| --------- | -------- | ------------- | -------- |
 |autoOpen   |   是否自动打开弹窗    |   false   |  
-|className  |   默认动画           |   fade-and-drap    |  
+|className  |   默认动画           |   fade-and-drap    |  修改动画只需修改这个的类名称就可以了，可以参考less   |
 |closeBtn   |   关闭按钮           |    true    |  
 |content    |   内容               |    空字符串    |  
 |maxWidth   |   最大宽度           |    600 |   默认单位是px    |  
