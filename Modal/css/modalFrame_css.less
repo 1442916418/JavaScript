@@ -1,0 +1,104 @@
+html,body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #333;
+    background-color: #fff;
+}
+/* 蒙层 */
+.modal-overlay{
+    position: fixed;
+    will-change: transform;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .3);
+    transition:  1ms opacity ease;
+    &.modal-open{
+        opacity: 1;
+    }
+}
+/* 模态框 */
+.modal{
+    position: absolute;
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80vm;
+    padding: 30px 20px;
+    transition: 1ms opactiy ease;
+    opacity: 0;
+    border-radius: 4px;
+    background-color: #fff;
+    &.modal-anchored{
+        top: 2vh;
+        transform: translate(-50%, 0);
+    }
+    &.modal-open{
+        opacity: 1;
+    }
+}
+// 模态框内容
+// .modal-content{
+//     padding: 20px 40px;
+//     border: 1px solid rgba(0, 0, 0, .2);
+//     background-color: white;
+//     border-radius: 6px;
+//     box-shadow: 0 3px 9px rgba(0, 0, 0, .5); 
+// }
+// 取消按钮
+.modal-close{
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 12px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: #ccc;
+    border: 0;
+    outline: none;
+    background: white;
+}
+/* 默认动画效果 */
+.modal-overlay.fade-and-drap{
+    display: block;
+    opacity: 0;
+    transition: 500ms opacity 500ms ease;
+
+    &.modal-open{
+        top: 0;
+        transition: 500ms opacity ease;
+        opacity: 1;
+    }
+}
+
+.modal.fade-and-drap{
+    top: -300vh;
+    opacity: 1;
+    display: block;
+    transition: 500ms top ease;
+
+    &.modal-open{
+        top: 50%;
+        transition: 500ms top 500ms ease;
+
+        &.modal-anchored{
+            transition: 500ms top 500ms ease;
+        }
+    }
+}
+// 另一个动画效果
+.modal.custom-animation{
+    transition: 500ms transform ease;
+    transform: translate(-50%, -50%) scale(0);
+
+    &.modal-open{
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

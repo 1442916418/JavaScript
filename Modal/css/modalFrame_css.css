@@ -1,83 +1,90 @@
-html,body{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 1rem;
-    line-height: 1rem;
-    color: #333;
-    background-color: #fff;
+html,
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #333;
+  background-color: #fff;
 }
-.outermost_container{
-    opacity: 1;
-    -webkit-transition: opacity .15s linear;
-    -o-transition: opacity .15s linear;
-    transition: opacity .15s linear;
+/* 蒙层 */
+.modal-overlay {
+  position: fixed;
+  will-change: transform;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: 1ms opacity ease;
 }
-.show_outermost_container{
-    opacity: 0;
-    -webkit-transition: opacity .15s linear;
-    -o-transition: opacity .15s linear;
-    transition: opacity .15s linear;
+.modal-overlay.modal-open {
+  opacity: 1;
 }
-.modal{
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, .3);
+/* 模态框 */
+.modal {
+  position: absolute;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80vm;
+  padding: 30px 20px;
+  transition: 1ms opactiy ease;
+  opacity: 0;
+  border-radius: 4px;
+  background-color: #fff;
 }
-.fade{
-    /* opacity: 0; */
-    -webkit-transition: opacity .15s linear;
-    -o-transition: opacity .15s linear;
-    transition: opacity .15s linear;
+.modal.modal-anchored {
+  top: 2vh;
+  transform: translate(-50%, 0);
 }
-.modal_dialog{
-    width: 37.5rem;
-    margin: 3.75rem auto;
-    opacity: 1;
-    -webkit-transition: opacity .15s linear;
-    -o-transition: opacity .15s linear;
-    transition: opacity .15s linear;
+.modal.modal-open {
+  opacity: 1;
 }
-.modal_content{
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, .2);
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 3px 9px rgba(0, 0, 0, .5); 
+.modal-close {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 12px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  color: #ccc;
+  border: 0;
+  outline: none;
+  background: white;
 }
-.modal_header{
-    padding: 15px;
-    border-bottom: 1px solid #E5E5E5;
+/* 默认动画效果 */
+.modal-overlay.fade-and-drap {
+  display: block;
+  opacity: 0;
+  transition: 500ms opacity 500ms ease;
 }
-.modal_body{
-    padding: 15px;
+.modal-overlay.fade-and-drap.modal-open {
+  top: 0;
+  transition: 500ms opacity ease;
+  opacity: 1;
 }
-.modal_footer{
-    padding: 15px;
-    text-align: right;
-    border-top: 1px solid #E5E5E5;
+.modal.fade-and-drap {
+  top: -300vh;
+  opacity: 1;
+  display: block;
+  transition: 500ms top ease;
 }
-.modal_ok_btn{
-    outline: none;
-    cursor: pointer;
-    padding: 5px 20px;
-    border: 1px solid #2d8cf0;
-    background-color: #2d8cf0;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: color .2s linear,background-color .2s linear,border .2s linear,box-shadow .2s linear;
+.modal.fade-and-drap.modal-open {
+  top: 50%;
+  transition: 500ms top 500ms ease;
 }
-.modal_cancel_btn{
-    outline: none;
-    cursor: pointer;
-    padding: 5px 20px;
-    border: 1px solid #ddd;
-    background-color: white;
-    color: #333;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: color .2s linear,background-color .2s linear,border .2s linear,box-shadow .2s linear;
+.modal.fade-and-drap.modal-open.modal-anchored {
+  transition: 500ms top 500ms ease;
+}
+.modal.custom-animation {
+  transition: 500ms transform ease;
+  transform: translate(-50%, -50%) scale(0);
+}
+.modal.custom-animation.modal-open {
+  transform: translate(-50%, -50%) scale(1);
 }
