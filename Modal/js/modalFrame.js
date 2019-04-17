@@ -95,7 +95,7 @@
             this.closeBtn.className = 'modal-close close-button';
             this.closeBtn.innerHTML = 'x';
             this.modal.appendChild(this.closeBtn);
-        }
+        } 
 
         // 判断overlay的值为true，则添加蒙层
         if (this.options.overlay === true) {
