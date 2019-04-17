@@ -1,104 +1,235 @@
-html,body{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 1rem;
-    line-height: 1rem;
-    color: #333;
+.transitionStyle() {
+    transition: opacity .2s linear, color .2s linear, background-color .2s linear, border .2s linear, box-shadow .2s linear;
+}
+
+.btn() {
+    outline         : none;
+    color           : #333;
+    padding         : 6px 15px;
+    border          : 1px solid transparent;
+    border-radius   : 5px;
+    background-color: transparent;
+    cursor          : pointer;
+    vertical-align  : middle;
+    font-size       : 0.75rem;
+    .transitionStyle();
+}
+
+html,
+body {
+    font-family     : "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size       : 1rem;
+    line-height     : 1rem;
+    color           : #333;
     background-color: #fff;
 }
+
 /* 蒙层 */
-.modal-overlay{
-    position: fixed;
-    will-change: transform;
-    z-index: 9999;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
+.modal-overlay {
+    position        : fixed;
+    will-change     : transform;
+    z-index         : 9999;
+    top             : 0;
+    right           : 0;
+    bottom          : 0;
+    left            : 0;
+    opacity         : 0;
     background-color: rgba(0, 0, 0, .3);
-    transition:  1ms opacity ease;
-    &.modal-open{
+    transition      : 1ms opacity ease;
+
+    &.modal-open {
         opacity: 1;
     }
 }
+
 /* 模态框 */
-.modal{
-    position: absolute;
-    z-index: 10000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 80vm;
-    padding: 30px 20px;
-    transition: 1ms opactiy ease;
-    opacity: 0;
-    border-radius: 4px;
+.modal {
+    position        : absolute;
+    z-index         : 10000;
+    top             : 50%;
+    left            : 50%;
+    transform       : translate(-50%, -50%);
+    max-width       : 80vm;
+    padding         : 30px 20px;
+    transition      : 1ms opactiy ease;
+    opacity         : 0;
+    border-radius   : 4px;
     background-color: #fff;
-    &.modal-anchored{
-        top: 2vh;
+
+    &.modal-anchored {
+        top      : 2vh;
         transform: translate(-50%, 0);
     }
-    &.modal-open{
+
+    &.modal-open {
         opacity: 1;
     }
 }
+
 // 模态框内容
 // .modal-content{
-//     padding: 20px 40px;
-//     border: 1px solid rgba(0, 0, 0, .2);
+//     padding         : 20px 40px;
+//     border          : 1px solid rgba(0, 0, 0, .2);
 //     background-color: white;
-//     border-radius: 6px;
-//     box-shadow: 0 3px 9px rgba(0, 0, 0, .5); 
+//     border-radius   : 6px;
+//     box-shadow      : 0 3px 9px rgba(0, 0, 0, .5); 
 // }
 // 取消按钮
-.modal-close{
-    font-size: 22px;
+.modal-close {
+    font-size  : 22px;
     font-weight: 700;
     line-height: 12px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 5px;
-    cursor: pointer;
-    color: #ccc;
-    border: 0;
-    outline: none;
-    background: white;
-}
-/* 默认动画效果 */
-.modal-overlay.fade-and-drap{
-    display: block;
-    opacity: 0;
-    transition: 500ms opacity 500ms ease;
+    position   : absolute;
+    top        : 5px;
+    right      : 5px;
+    padding    : 5px;
+    cursor     : pointer;
+    color      : #eee;
+    border     : 0;
+    outline    : none;
+    background : white;
 
-    &.modal-open{
-        top: 0;
-        transition: 500ms opacity ease;
-        opacity: 1;
+    &:hover {
+        color: #ccc;
     }
 }
 
-.modal.fade-and-drap{
-    top: -300vh;
-    opacity: 1;
-    display: block;
+/* 默认动画效果 */
+.modal-overlay.fade-and-drap {
+    display   : block;
+    opacity   : 0;
+    transition: 500ms opacity 500ms ease;
+
+    &.modal-open {
+        top       : 0;
+        transition: 500ms opacity ease;
+        opacity   : 1;
+    }
+}
+
+.modal.fade-and-drap {
+    top       : -300vh;
+    opacity   : 1;
+    display   : block;
     transition: 500ms top ease;
 
-    &.modal-open{
-        top: 50%;
+    &.modal-open {
+        top       : 50%;
         transition: 500ms top 500ms ease;
 
-        &.modal-anchored{
+        &.modal-anchored {
             transition: 500ms top 500ms ease;
         }
     }
 }
-// 另一个动画效果
-.modal.custom-animation{
-    transition: 500ms transform ease;
-    transform: translate(-50%, -50%) scale(0);
 
-    &.modal-open{
+// 另一个动画效果
+.modal.custom-animation {
+    transition: 500ms transform ease;
+    transform : translate(-50%, -50%) scale(0);
+
+    &.modal-open {
         transform: translate(-50%, -50%) scale(1);
     }
+}
+
+// 按钮样式
+.btn-primary {
+    .btn();
+    color           : #fff;
+    border-color    : #2d8cf0;
+    background-color: #2d8cf0;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.btn-default {
+    .btn();
+    color           : #515a6e;
+    border-color    : #dcdee2;
+    background-color: #fff;
+
+    &:hover {
+        color       : #2d8cf0;
+        border-color: #2d8cf0;
+        .transitionStyle();
+    }
+}
+
+.btn-dashed {
+    .btn();
+    color           : #515a6e;
+    background-color: #fff;
+    border-color    : #dcdee2;
+    border-style    : dashed;
+
+    &:hover {
+        color       : #2d8cf0;
+        border-style: dashed;
+        border-color: #2d8cf0;
+        .transitionStyle();
+    }
+}
+
+.btn-text {
+    .btn();
+    color           : #515a6e;
+    background-color: transparent;
+    border-color    : transparent;
+
+    &:hover {
+        color: #2d8cf0;
+        .transitionStyle();
+    }
+}
+
+.btn-success {
+    .btn();
+    color           : white;
+    background-color: #19be6b;
+    border-color    : #19be6b;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.btn-warning {
+    .btn();
+    color           : #fff;
+    background-color: #f90;
+    border-color    : #f90;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.btn-error {
+    .btn();
+    color           : #fff;
+    background-color: #ed4014;
+    border-color    : #ed4014;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.circle {
+    width        : 25px;
+    height       : 25px;
+    padding      : 0;
+    font-size    : 16px;
+    border-radius: 50%;
 }

@@ -1,0 +1,118 @@
+// 通用样式
+.transitionStyle() {
+    transition: opacity .2s linear, color .2s linear, background-color .2s linear, border .2s linear, box-shadow .2s linear;
+}
+
+.btn() {
+    outline         : none;
+    color           : #333;
+    padding         : 6px 15px;
+    border          : 1px solid transparent;
+    border-radius   : 5px;
+    background-color: transparent;
+    cursor          : pointer;
+    vertical-align  : middle;
+    font-size       : 0.75rem;
+    .transitionStyle();
+}
+
+// 模拟按钮样式
+.btn-primary {
+    .btn();
+    color           : #fff;
+    border-color    : #2d8cf0;
+    background-color: #2d8cf0;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.btn-default {
+    .btn();
+    color           : #515a6e;
+    border-color    : #dcdee2;
+    background-color: #fff;
+
+    &:hover {
+        color       : #2d8cf0;
+        border-color: #2d8cf0;
+        .transitionStyle();
+    }
+}
+
+.btn-dashed {
+    .btn();
+    color           : #515a6e;
+    background-color: #fff;
+    border-color    : #dcdee2;
+    border-style    : dashed;
+
+    &:hover {
+        color       : #2d8cf0;
+        border-style: dashed;
+        border-color: #2d8cf0;
+        .transitionStyle();
+    }
+}
+
+.btn-text {
+    .btn();
+    color           : #515a6e;
+    background-color: transparent;
+    border-color    : transparent;
+
+    &:hover {
+        color: #2d8cf0;
+        .transitionStyle();
+    }
+}
+
+.btn-success {
+    .btn();
+    color           : white;
+    background-color: #19be6b;
+    border-color    : #19be6b;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.btn-warning {
+    .btn();
+    color           : #fff;
+    background-color: #f90;
+    border-color    : #f90;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.btn-error {
+    .btn();
+    color           : #fff;
+    background-color: #ed4014;
+    border-color    : #ed4014;
+    opacity         : 1;
+
+    &:hover {
+        opacity: 0.9;
+        .transitionStyle();
+    }
+}
+
+.circle {
+    width        : 25px;
+    height       : 25px;
+    padding      : 0;
+    font-size    : 16px;
+    border-radius: 50%;
+}

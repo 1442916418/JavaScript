@@ -93,7 +93,7 @@
         if (this.options.closeBtn === true) {
             this.closeBtn = document.createElement('button');
             this.closeBtn.className = 'modal-close close-button';
-            this.closeBtn.innerHTML = 'x';
+            this.closeBtn.innerHTML = '&#10006';
             this.modal.appendChild(this.closeBtn);
         } 
 

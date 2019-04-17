@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>模态框</title>
-    <link rel="stylesheet/less" type="text/css" href="/css/modalFrame_css.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
+    <title>Less Button</title>
+    <link rel="stylesheet" href="/css/button-style.css">
 </head>
-
 <body>
-    <button class="btn-primary btn" onclick="show()">普通模态框</button>
     <button class="btn-primary btn">Primary</button>
     <button class="btn-default btn">Default</button>
     <button class="btn-dashed btn">Dashed</button>
@@ -20,17 +16,5 @@
     <button class="btn-warning btn">Warning</button>
     <button class="btn-error btn">Error</button>
     <button class="btn-primary btn circle">&#10006</button>
-
-    <script src="./js/modalFrame.js"></script>
-    <script>
-        var myModal = new Modal({
-            content: '<p>这是一个模态框</p>'
-        });
-
-        function show() {
-            myModal.open();
-        }
-    </script>
 </body>
-
 </html>
