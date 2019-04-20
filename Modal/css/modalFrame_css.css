@@ -1,3 +1,13 @@
+.confirmBtn-location {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+}
+.cancelBtn-location {
+  position: absolute;
+  right: 85px;
+  bottom: 10px;
+}
 html,
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

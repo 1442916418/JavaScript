@@ -14,11 +14,15 @@
         var defaults = {
             autoOpen: false,                    // 是否自动打开弹窗
             className: 'fade-and-drap',         // 默认动画
-            closeBtn: true,                     // 关闭按钮
+            closeBtn: true,                     // 右上角关闭按钮
             content: '',                        // 内容
             maxWidth: 600,                      // 最大宽度
             minWidth: 280,                      // 最小宽度
-            overlay: true                       // 是否开启蒙层
+            overlay: true,                      // 是否开启蒙层
+            confirmBtn: false,                  // 是否开启确认按钮
+            confirmFun: false,                  // 是否给确认按钮传入回调函数
+            cancelBtn: false,                   // 是否开启取消按钮
+            cancelFun: false                    // 是否给取消按钮传入回调函数
         }
 
         // 通过扩展 arguments 中传递的缺省值来创建选项
@@ -26,9 +30,9 @@
             this.options = extendDefaults(defaults, arguments[0]);
         }
 
-        if(this.options.autoOpen === true) this.open();
-    }    
-    
+        if (this.options.autoOpen === true) this.open();
+    }
+
     // 公有方法
     // 打开弹框
     Modal.prototype.open = function () {
@@ -51,7 +55,6 @@
     Modal.prototype.close = function () {
         // 存储this
         var $this = this;
-
         // 移除打开模态框时添加的类名
         this.modal.className = this.modal.className.replace(' modal-open', '');
         this.overlay.className = this.overlay.className.replace(' modal-open', '');
@@ -71,6 +74,7 @@
     // 私有方法
     // 根据自定义选项来构建一个模态框
     function buildOut() {
+        var _this = this;
         var content, contentHolder, docFrag;
 
         // 判读内容是HTML，则追加HTML字符串；如果内容不是HTML，则追加内容
@@ -89,15 +93,41 @@
         this.modal.style.minWidth = this.options.minWidth + 'px';
         this.modal.style.maxWidth = this.options.maxWidth + 'px';
 
-        // 判断closeBtn的值为ture，则添加close按钮
+        // 判断cancelBtn的值如果为true，则添加取消按钮
+        if (this.options.cancelBtn === true) {
+            this.cancelBtn = document.createElement('button');
+            this.cancelBtn.className = 'btn btn-text cancelBtn-location';
+            this.cancelBtn.innerHTML = '取消';
+            this.cancelBtn.addEventListener('click', function () {
+                if (_this.options.cancelFun) {
+                    _this.options.cancelFun();
+                }
+            });
+            this.modal.appendChild(this.cancelBtn);
+        }
+
+        // 判断confirmBtn的值如果为true，则添加确认按钮
+        if (this.options.confirmBtn === true) {
+            this.confirmBtn = document.createElement('button');
+            this.confirmBtn.className = 'btn btn-primary confirmBtn-location';
+            this.confirmBtn.innerHTML = '确认';
+            this.confirmBtn.addEventListener('click', function () {
+                if (_this.options.confirmFun) {
+                    _this.options.confirmFun();
+                }
+            });
+            this.modal.appendChild(this.confirmBtn);
+        }
+
+        // 判断closeBtn的值如果为true则添加close按钮
         if (this.options.closeBtn === true) {
             this.closeBtn = document.createElement('button');
             this.closeBtn.className = 'modal-close close-button';
             this.closeBtn.innerHTML = '&#10006';
             this.modal.appendChild(this.closeBtn);
-        } 
+        }
 
-        // 判断overlay的值为true，则添加蒙层
+        // 判断overlay的值如果为true，则添加蒙层
         if (this.options.overlay === true) {
             this.overlay = document.createElement('div');
             this.overlay.className = 'modal-overlay ' + this.options.className;
@@ -140,13 +170,21 @@
 
     // 初始化事件监听器
     function initialzeEvents() {
-        // 关闭按钮
+        // 右上角关闭按钮
         if (this.closeBtn) {
             this.closeBtn.addEventListener('click', this.close.bind(this));
         }
         // 蒙层
         if (this.overlay) {
             this.overlay.addEventListener('click', this.close.bind(this));
+        }
+        // 确认按钮
+        if (this.confirmBtn) {
+            this.confirmBtn.addEventListener('click', this.close.bind(this));
+        }
+        // 取消按钮
+        if (this.cancelBtn) {
+            this.cancelBtn.addEventListener('click', this.close.bind(this));
         }
     }
 }())

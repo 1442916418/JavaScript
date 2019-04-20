@@ -8,28 +8,64 @@
     <title>模态框</title>
     <link rel="stylesheet/less" type="text/css" href="/css/modalFrame_css.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
+    <style>
+        center {
+            padding-top: 100px;
+        }
+    </style>
 </head>
 
 <body>
-    <button class="btn-primary btn" onclick="show()">普通模态框</button>
-    <button class="btn-primary btn">Primary</button>
-    <button class="btn-default btn">Default</button>
-    <button class="btn-dashed btn">Dashed</button>
-    <button class="btn-text btn">Text</button>
-    <button class="btn-success btn">Success</button>
-    <button class="btn-warning btn">Warning</button>
-    <button class="btn-error btn">Error</button>
-    <button class="btn-primary btn circle">&#10006</button>
+    <center>
+        <button class="btn-primary btn" onclick="show1()">普通模态框</button>
+        <button class="btn-primary btn" onclick="show2()">确认模态框</button>
+        <button class="btn-default btn" onclick="show3()">确认、取消模态框</button>
+    </center>
 
     <script src="./js/modalFrame.js"></script>
     <script>
-        var myModal = new Modal({
-            content: '<p>这是一个模态框</p>'
+        var myModal1 = new Modal({
+            content: '<p>这是一个模态框</p>',
+            closeBtn: true,
         });
 
-        function show() {
-            myModal.open();
+        var myModal2 = new Modal({
+            content: '<p>这是一个模态框</p>',
+            closeBtn: true,
+            confirmBtn: true,
+            confirmFun: confirmFunTest
+        });
+
+        var myModal3 = new Modal({
+            content: '<p>这是一个模态框</p>',
+            closeBtn: true,
+            confirmBtn: true,
+            confirmFun: confirmFunTest,
+            cancelBtn: true,
+            cancelFun: cancleFunTest
+        });
+
+        function show3(){
+            myModal3.open();
         }
+
+        function show2(){
+            myModal2.open();
+        }
+
+        function show1() {
+            myModal1.open();
+        }
+
+        function confirmFunTest() {
+            console.log('%c确认回调函数','font-size:20px;color:green;');
+        }
+
+        function cancleFunTest(){
+            console.log('%c取消回调函数','font-size:20px;color:red;');
+        }
+
+
     </script>
 </body>
 

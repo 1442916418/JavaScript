@@ -25,6 +25,10 @@ myModal.open();
 |className  |   默认动画           |   fade-and-drap    |  修改动画只需修改这个的类名称就可以了，可以参考less   |
 |closeBtn   |   关闭按钮           |    true    |  
 |content    |   内容               |    空字符串    |  
-|maxWidth   |   最大宽度           |    600 |   默认单位是px    |  
-|minWidth   |   最小宽度           |    280 |   默认单位是px    |  
-|overlay    |   是否开启蒙层        |   tue |  
+|maxWidth   |   最大宽度           |    600     |   默认单位是px    |  
+|minWidth   |   最小宽度           |    280     |   默认单位是px    |  
+|overlay    |   是否开启蒙层        |   true    |  
+|confirmBtn |   是否开启确认按钮    |   false   |  
+|confirmFun |   是否给确认按钮传入回调函数    |   false   | 函数可以自定义 
+|cancelBtn  |   是否开启取消按钮    |   false   |  
+|cancelFun  |   是否给取消按钮传入回调函数  |   false   |   函数可以自定义
