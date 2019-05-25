@@ -10,7 +10,7 @@ function modalFramePicture() {
             createMask.className = 'createMask';
             createMask.addEventListener('click', function () {
                 body.removeChild(createMask);
-            });
+            }); 
 
             var createImg = document.createElement('img');
             var currentPicture = imgAll[this.index];
@@ -18,7 +18,6 @@ function modalFramePicture() {
             createImg.src = currentPicture.src;
             createImg.style.width = currentPicture.width * 2 + 'px';
             createImg.style.height = currentPicture.height * 1.5 + 'px';
-            createImg.className = ' TopToBottom';
 
             createMask.appendChild(createImg);
             body.appendChild(createMask);
